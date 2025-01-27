@@ -14,6 +14,8 @@ body {
   --title-color: #03256c;
   --text-light: #4d5064;
   --text-bold: #0e1124;
+  --footer-icon-light: #ffffff1a;
+  --input-color:#f3f3f3;
   --white: #ffffff;
   --black: #000000;
   --border-color: #10002b26;
@@ -70,6 +72,7 @@ a {
 ul li {
   list-style: none;
 }
+
 .w-6 {
   width: 50%;
 }
@@ -93,13 +96,32 @@ ul li {
 .btm-primary {
   color: var(--white);
   background-color: var(--primary);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
-.btm-primary:hover {
-  transform: scale(1.1);
+.btm-primary::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+  height: 0;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  background-color: var(--title-color);
+}
+.btm-primary:hover::after {
+  height: 100%;
+  top: 0;
+}
+.btm-primary:hover .btn-svg {
+  transform: rotate(90deg);
 }
 .btn-svg {
   width: 22px;
   transform: rotate(30deg);
+  transition: all 0.5s ease-in-out;
 }
 .w-6 {
   width: 50%;
@@ -116,8 +138,15 @@ header {
   transition: all 0.5s ease-in-out;
   /* box-shadow: 0 10px 20px var(--black), 0 6px 6px var(--text-bold); */
 }
-.header-change{
+.header-change {
   background-color: var(--text-bold);
+}
+.header-change .toggle-btn {
+  border: 1px solid var(--white);
+  color: var(--white);
+}
+.header-change .logo img {
+  filter: brightness(0) invert(1);
 }
 .logo {
   display: inline-block;
@@ -559,7 +588,7 @@ button {
 .team-sec {
   background-color: var(--bg-color);
 }
-.team-card-item{
+.team-card-item {
   border-radius: 4px;
   overflow: hidden;
 }
@@ -568,7 +597,7 @@ button {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
-.member-img img{
+.member-img img {
   display: inline-block;
   width: 100%;
   height: 100%;
@@ -594,13 +623,13 @@ button {
   text-align: center;
   position: relative;
 }
-.team-content::after{
+.team-content::after {
   content: "";
   position: absolute;
   height: 2%;
   width: 100%;
   bottom: 0;
-  transition:all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
   left: 0;
   background-color: var(--primary);
 }
@@ -613,9 +642,10 @@ button {
   transition: all 0.4s ease-in-out;
   margin-bottom: 10px;
 }
-.team-member-post{
+.team-member-post {
   transition: all 0.4s ease-in-out;
 }
+
 .contact-team {
   display: flex;
   gap: 10px;
@@ -626,6 +656,7 @@ button {
   transition: all 0.4s ease-in-out;
   border-top: 1px solid var(--border-color);
 }
+
 .contact-icon {
   padding: 10px;
   display: flex;
@@ -635,33 +666,194 @@ button {
   border-radius: 50%;
   background-color: var(--bg-color);
 }
+
 .contact-icon svg {
   height: 20px;
 }
-.team-card-item:hover ::after{
-height: 100%;
+
+.team-card-item:hover ::after {
+  height: 100%;
 }
-.team-card-item:hover .team-member-name ,.team-card-item:hover .team-member-post{
+
+.team-card-item:hover .team-member-name,
+.team-card-item:hover .team-member-post {
   color: var(--white);
 }
-.team-content:hover .contact-team{
+
+.team-content:hover .contact-team {
   border-top: 1px solid var(--white);
 }
-.cta-title{
+
+.cta-title {
   color: var(--white);
   margin-bottom: 20px;
 }
-.main-title .cta-subtitle p{
+
+.main-title .cta-subtitle p {
   color: var(--white);
   max-width: 580px;
   margin: 0 auto;
 }
-.main-title .cta-subtitle{
+
+.main-title .cta-subtitle {
   margin-bottom: 30px;
 }
-.from-input{
-  padding: 18px;
+
+.cta-from {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.from-btn {
+  position: absolute;
+  right: 0;
+}
+.from-input:focus-visible {
+  outline: none;
+}
+.from-input {
+  padding: 12px;
+  padding-right: 160px;
+  font-family: inherit;
+  width: 100%;
   border: none;
+  font-weight: 500;
+  font-size: 15px;
   border-radius: 4px;
-background-color: var(--white);
+  background-color: var(--white);
+}
+
+.contact-sec-item{
+  display: grid;
+  grid-template-columns: repeat(2 ,1fr);
+  align-items: center;
+  gap: 30px;
+}
+
+.contact-sec-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.contact-sec-title{
+margin-bottom: 20px;
+}
+.contact-subtitle{
+  margin-bottom: 30px;
+}
+.contact-sec-from{
+  display: grid;
+  grid-template-columns: repeat(2 ,1fr);
+  row-gap: 16px;
+  column-gap:10px ;
+}
+.from-control{
+  padding: 16px;
+  font-family: inherit;
+  font-size: inherit;
+  background-color: var(--input-color);
+  width: 100%;
+  border-radius: 4px;
+border: none;
+}
+.textarea-contact:focus-visible ,.from-control:focus-visible{
+  outline: none;
+}
+.textarea-contact{
+  grid-column: 1/3;
+}
+.from-sec-btn{
+  width: fit-content;
+}
+
+
+
+
+footer {
+  background-color: var(--black);
+}
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 20px;
+  padding: 100px 0;
+}
+.footer-content .logo-content{
+  grid-column: 1/3;
+}
+.footer-content .contact-item{
+  grid-column: 6/8;
+}
+.footer-logo {
+  display: inline-block;
+  height: 60px;
+}
+.footer-social-icon {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.footer-richtext {
+  padding: 0px 0 24px 0;
+}
+.footer-richtext p{
+  opacity: 0.8;
+  color: var(--white);
+}
+.social-icon {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  border-radius: 50%;
+  background-color: var(--bg-color);
+  font-size: 20px;
+  color: var(--white);
+  background-color: var(--footer-icon-light);
+}
+.social-icon svg {
+  height: 20px;
+}
+.footer-list-items {
+  color: var(--white);
+}
+.footer-list li a{
+  color: var(--white);
+  opacity: 0.8;
+}
+.footer-list-title {
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+.footer-list li:not(:last-child) {
+  margin-bottom: 16px;
+}
+.contact-item {
+  color: var(--white);
+}
+.contact-item .footer-contact-type:not(:last-child){
+  margin-bottom: 10px;
+}
+.footer-contact-type{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+.contact-img{
+  height: 30px;
+  width: 26px;
+}
+.contact-img img{
+  height: 100%;
+  width: 100%;
+}
+.contact-detail{
+  opacity: 0.8;
+}
+.copyright{
+  text-align: center;
+  padding: 24px;
+  border-top: 1px solid var(--white);
+  color: var(--white)
 }
