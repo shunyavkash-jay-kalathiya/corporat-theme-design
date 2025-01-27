@@ -56,9 +56,16 @@ h5,
   color: currentColor;
   font-size: 16px;
 }
+p .p{
+ font-size: 16px;
+  font-weight: 500;
+  color: var(--text-light);
+  line-height: 1.6;
+}
 .richtext:has(p) {
   font-size: 16px;
   font-weight: 500;
+  transition: all 0.4s ease-in-out;
   color: var(--text-light);
   line-height: 1.6;
 }
@@ -265,7 +272,7 @@ header {
   height: 100%;
   object-fit: cover;
 }
-.heading-after {
+/* .heading-after {
   position: relative;
 }
 .heading-after::after {
@@ -278,7 +285,7 @@ header {
   width: 30px;
   top: 0;
   right: 0;
-}
+} */
 .hero-subtitle {
   margin-bottom: 30px;
 }
@@ -766,8 +773,88 @@ border: none;
   width: fit-content;
 }
 
-
-
+/* testimonial */
+.testimonial-sec{
+  overflow: hidden;
+}
+.testimonial-sec .splide__arrow--prev {
+left: -30px;
+}
+.testimonial-sec .splide__arrow--next {
+right: -30px;
+}
+.splide__arrow svg{
+  fill: none;
+}
+.testimonial-sec .splide__arrow{
+background-color: var(--bg-color);
+padding: 10px;
+opacity: 1;
+}
+.testimonial-sec .splide__track{
+  overflow: visible;
+}
+.testimonial-title{
+  max-width: 620px;
+  margin: 0 auto;
+}
+.testimonial-card{
+  border: 1px solid var(--border-color);
+  padding: 42px 24px 32px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.testimonial-card::after{
+  position: absolute;
+  content:"";
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  width: 100%;
+  transition: all 0.4s ease-in-out;
+  height: 2%;
+  background-color: var(--primary);
+}
+.testimonial-card:hover::after{
+height: 100%;
+}
+.testimonial-img img{
+ transition: all 0.4s ease-in-out;
+}
+.testimonial-card:hover .testimonial-img img{
+filter: brightness(0) invert(1);
+}
+.testimonial-comment-hadding{
+  transition: all 0.4s ease-in-out;
+}
+.testimonial-card:hover .testimonial-text,.testimonial-card:hover .testimonial-comment-hadding{
+ color: var(--white);
+}
+.testimonial-star{
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  height: 28px;
+  width: 28px;
+  border-radius: 4px;
+  color: orange;background-color: var(--bg-color);
+}
+.testimonial-star svg{
+width: 20px;
+}
+.testimonial-star-list{
+  display: flex;
+  margin-bottom: 30px;
+  gap: 10px;
+}
+.testimonial-img{
+margin-bottom: 30px;
+}
+.testimonial-text{
+  margin-bottom: 20px;
+}
 
 footer {
   background-color: var(--black);
