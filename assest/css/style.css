@@ -95,10 +95,28 @@ ul li {
 
 .btm-primary {
   color: var(--white);
+  position: relative;
+  z-index: 2;
   background-color: var(--primary);
+  overflow: hidden;
 }
-.btm-primary:hover {
-  transform: scale(1.1);
+.btm-primary::after{
+content: " ";
+height: 0%;
+width: 100%;
+position: absolute;
+background-color: var(--title-color);
+bottom: 0;
+transition: all 0.4s ease-in-out;
+left: 0;
+z-index: -1;
+}
+.btm-primary:hover::after {
+  top: 0;
+  height: 100%;
+}
+.btm-primary:hover .btn-svg{
+transform: rotate(90deg);
 }
 .btn-svg {
   width: 22px;
@@ -196,7 +214,8 @@ header {
   padding: 120px 0 120px 0;
 }
 .hero-items {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2 ,1fr);
   align-items: center;
   gap: 30px;
 }
@@ -236,13 +255,6 @@ header {
   font-weight: 700;
   line-height: 0.98;
   color: var(--white);
-}
-.hero-text {
-  width: 41.66666667%;
-}
-
-.hero-img {
-  width: 58.33333333%;
 }
 .hero-img-sec {
   height: 100%;
@@ -692,12 +704,13 @@ button {
 .from-btn {
   position: absolute;
   right: 0;
+  top: 0;
 }
 .from-input:focus-visible {
   outline: none;
 }
 .from-input {
-  padding: 12px;
+  padding: 10px;
   padding-right: 160px;
   font-family: inherit;
   width: 100%;
@@ -714,7 +727,10 @@ button {
   align-items: center;
   gap: 30px;
 }
-
+.contact-sec-img{
+  height: 100%;
+  max-height: 400px;
+}
 .contact-sec-img img{
   width: 100%;
   height: 100%;

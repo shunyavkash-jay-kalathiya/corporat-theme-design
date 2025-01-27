@@ -98,14 +98,14 @@ h5 ,.h5{
   .about-item {
     height: 500px;
   }
-.advice-content{
-  flex-direction: column;
-}
+
 .advice-text{
   width: 100%;
 }
 .advice-item{
   width: 100%;
+  height: fit-content;
+  min-height: 300px;
 }
 .pricing-card{
   grid-template-columns: repeat(2 ,1fr);
@@ -117,6 +117,9 @@ h5 ,.h5{
   grid-column: 1/3;
 }
 .contact-sec-item{
+  grid-template-columns: repeat(1 ,1fr);
+}
+.hero-items{
   grid-template-columns: repeat(1 ,1fr);
 }
 }
@@ -148,6 +151,9 @@ h5 ,.h5{
     grid-template-columns: repeat(2 ,1fr);
     gap: 40px;
   }
+  .advice-content{
+  flex-direction: column;
+}
     .service-grid{
   grid-template-columns: repeat(2 ,1fr);
 }
