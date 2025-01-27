@@ -122,6 +122,11 @@ h5 ,.h5{
 .hero-items{
   grid-template-columns: repeat(1 ,1fr);
 }
+.contact-sec-img{
+  height: 100%;
+  width: 100%;
+  max-height: 400px;
+}
 }
 @media (max-width: 767px) {
   .hero-text  h1,
