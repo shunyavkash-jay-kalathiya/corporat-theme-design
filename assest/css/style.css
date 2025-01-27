@@ -96,30 +96,14 @@ ul li {
 .btm-primary {
   color: var(--white);
   background-color: var(--primary);
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
 }
-.btm-primary::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  transition: all 0.5s ease-in-out;
-  height: 0;
-  left: 0;
-  bottom: 0;
-  z-index: -1;
-  background-color: var(--title-color);
-}
-.btm-primary:hover::after {
-  height: 100%;
-  top: 0;
-}
-.btm-primary:hover .btn-svg {
-  transform: rotate(90deg);
+.btm-primary:hover {
+  transform: scale(1.1);
 }
 .btn-svg {
   width: 22px;
+  height: 22px;
+  transition: all 0.4s ease-in-out;
   transform: rotate(30deg);
   transition: all 0.5s ease-in-out;
 }
@@ -277,10 +261,11 @@ header {
   background-image: url(../images/hadding-after.png);
   background-repeat: no-repeat;
   position: absolute;
+  display: inline-block;
   height: 37px;
   width: 30px;
   top: 0;
-  display: inline-block;
+  right: 0;
 }
 .hero-subtitle {
   margin-bottom: 30px;
@@ -687,6 +672,7 @@ button {
 .cta-title {
   color: var(--white);
   margin-bottom: 20px;
+  max-width: 500px;
 }
 
 .main-title .cta-subtitle p {
