@@ -672,7 +672,6 @@ button {
 .cta-title {
   color: var(--white);
   margin-bottom: 20px;
-  max-width: 500px;
 }
 
 .main-title .cta-subtitle p {
